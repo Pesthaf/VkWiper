@@ -23,7 +23,8 @@ sudo apt install composer
 composer require vkcom/vk-php-sdk
 ```
 В случае успешного выполнения появятся файлы *composer.json composer.lock* и директория *vendor*.
-В настройках скрипта (файл *config.php*) прописать access token (его получение выходит за рамки данного ридми, [см. здесь](https://readd.org/kak-poluchit-access_token-vkontakte/)) и идентификаторы диалогов для отслеживания (совпадают с ID собеседника).
+В настройках скрипта (файл *config.php*) прописать access token (его получение выходит за рамки данного ридми, [см. здесь](https://readd.org/kak-poluchit-access_token-vkontakte/)) и идентификаторы диалогов для отслеживания (совпадают с ID собеседника, но ни в коем случае не сокращенный адрес страницы).
+
 По желанию прописать в cron автоматический запуск:
 ```bash
 crontab -e

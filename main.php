@@ -28,7 +28,7 @@ foreach ($dialogs as $dialog) {
 	logOut("Приступаем к обработке диалога №$dialog");
 	// Выполняем запрос на получение истории переписки
 	$history = $vk->messages()->getHistory($access_token, array(
-		'count' => '100',
+		'count' => $history_count,
 		'user_id' => $dialog,
 		'extended' => '1'
 	));
@@ -44,6 +44,8 @@ foreach ($dialogs as $dialog) {
 				if ($message['id'] <= $out_read) { // не забываем убедиться в том, что собеседник уже прочел сообщение, иначе смысл его удалять?
 					// Добавляем идентификатор сообщения в список на удаление
 					$to_delete[] = $message['id'];
+				} else {
+					logOut("Сообщение №" . $message['id'] . " подлежит удалению, но собеседник до сих пор не прочёл его.");
 				}
 			}
 		}
